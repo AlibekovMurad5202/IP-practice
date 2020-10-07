@@ -1,5 +1,6 @@
 import cv2 as cv
 import numpy as np
+from utils import *
 
 def BGR2YCRCB(image):
     return cv.cvtColor(image, cv.COLOR_BGR2YCrCb)
@@ -20,13 +21,7 @@ def YCrCb2bgr_pixel(pixel, delta = None):
     r = y + 1.403 * (cr - delta)
     g = y - 0.714 * (cr - delta) - 0.344 * (cb - delta)
     b = y + 1.773 * (cb - delta)
-    return clamp_pixel((b, g, r), 0)
-
-def clamp_pixel(colors, value):
-    b_result = max(min(colors[0] + value, 255), 0)
-    g_result = max(min(colors[1] + value, 255), 0)
-    r_result = max(min(colors[2] + value, 255), 0)
-    return (b_result, g_result, r_result)
+    return clamp_bgr_pixel((b, g, r), 0)
 
 def bgr2YCrCb(image):
     height, width = image.shape[:2]
@@ -42,20 +37,4 @@ def YCrCb2bgr(image):
     for y in range(height):
         for x in range(width):
             result_image[y, x] = YCrCb2bgr_pixel(image[y, x], 128)
-    return result_image
-
-def brightness_bgr(image, value):
-    height, width = image.shape[:2]
-    result_image = np.zeros(shape=(height, width, 3), dtype='uint8')
-    for y in range(height):
-        for x in range(width):
-            result_image[y, x] = clamp_pixel(image[y, x], value)
-    return result_image
-
-def brightness_YCrCb(image, value):
-    height, width = image.shape[:2]
-    result_image = image
-    for y in range(height):
-        for x in range(width):
-            result_image[y, x, 0] = max(min(image[y, x, 0] + value, 255), 0)
     return result_image
