@@ -1,7 +1,7 @@
 import sys
 import argparse
 import cv2 as cv
-import converter
+import converter_2 as converter
 
 def build_argparser():
     parser = argparse.ArgumentParser()
@@ -17,33 +17,39 @@ def main():
     cv.waitKey(0)
     cv.destroyAllWindows()
 
-    image_HSV = converter.BGR2HSV(image)
-    image_BGR = converter.HSV2BGR(image_HSV)
-    cv.imshow("Image", image_BGR)
+    image_conv = converter.BGR2YCRCB(image)
+    image_after = converter.YCRCB2BGR(image_conv)
+    cv.imshow("Image (BGR -> YCRCB)", image_after)
     cv.waitKey(0)
     cv.destroyAllWindows()
 
-    image_hsv = converter.bgr2hsv(image)
-    image_bgr = converter.HSV2BGR(image_hsv)
-    cv.imshow("Image", image_bgr)
+    image_conv = converter.bgr2YCrCb(image)
+    image_after = converter.YCRCB2BGR(image_conv)
+    cv.imshow("Image (bgr -> YCRCB)", image_after)
     cv.waitKey(0)
     cv.destroyAllWindows()
 
-    image_hsv = converter.BGR2HSV(image)
-    image_bgr = converter.hsv2bgr(image_hsv)
-    cv.imshow("Image", image_bgr)
+    image_conv = converter.BGR2YCRCB(image)
+    image_after = converter.YCrCb2bgr(image_conv)
+    cv.imshow("Image (BGR -> YCrCb)", image_after)
     cv.waitKey(0)
     cv.destroyAllWindows()
 
-    image_bgr = converter.brightness_bgr(image, 100)
-    cv.imshow("Image", image_bgr)
+    image_conv = converter.bgr2YCrCb(image)
+    image_after = converter.YCrCb2bgr(image_conv)
+    cv.imshow("Image (bgr -> YCrCb)", image_after)
     cv.waitKey(0)
     cv.destroyAllWindows()
 
-    image_hsv = converter.BGR2HSV(image)
-    image_2 = converter.brightness_hsv(image_hsv, 50)
-    image_bgr = converter.HSV2BGR(image_2)
-    cv.imshow("Image", image_bgr)
+    image_after = converter.brightness_bgr(image, 150)
+    cv.imshow("Image (BGR) (brightness += 150)", image_after)
+    cv.waitKey(0)
+    cv.destroyAllWindows()
+
+    image_conv = converter.bgr2YCrCb(image)
+    image_after = converter.brightness_YCrCb(image_conv, 150)
+    image_bgr = converter.YCrCb2bgr(image_after)
+    cv.imshow("Image (YCrCb) (brightness += 150)", image_bgr)
     cv.waitKey(0)
     cv.destroyAllWindows()
 
