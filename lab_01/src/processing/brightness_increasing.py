@@ -1,5 +1,5 @@
 import numpy as np
-from utils import *
+from processing.utils import *
 
 def brightness_bgr(image, value):
     height, width = image.shape[:2]

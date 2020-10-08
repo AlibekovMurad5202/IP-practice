@@ -1,6 +1,6 @@
 import cv2 as cv
 import numpy as np
-from utils import *
+from processing.utils import *
 
 def BGR2YCRCB(image):
     return cv.cvtColor(image, cv.COLOR_BGR2YCrCb)

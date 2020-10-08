@@ -39,7 +39,6 @@ def main():
     cv.waitKey(0)
     cv.destroyAllWindows()
 
-    color_models_converting(image)
     time_BGR, time_YCrCb = brightness_increasing(image)
     print("time_BGR: {}".format(time_BGR))
     print("time_YCrCb: {}".format(time_YCrCb))
