@@ -4,11 +4,11 @@ from processing.color_models_converters import *
 
 def build_argparser():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-i', '--input', help = 'Path to data', 
+    parser.add_argument('-i', '--input', help = 'Path to image', 
         required = True, type = str, nargs = '+', dest = 'input')
     return parser
 
-def color_models_converting(image):
+def color_models_convert(image):
     image_conv = BGR2YCRCB(image)
     image_after = YCRCB2BGR(image_conv)
     cv.imshow("Image (BGR -> YCRCB -> BGR)", image_after)
@@ -41,7 +41,7 @@ def main():
     cv.waitKey(0)
     cv.destroyAllWindows()
 
-    color_models_converting(image)
+    color_models_convert(image)
 
 if __name__ == '__main__':
     sys.exit(main() or 0)

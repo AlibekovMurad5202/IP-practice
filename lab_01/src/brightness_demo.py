@@ -1,16 +1,16 @@
 import sys
 import argparse
 from time import perf_counter
-from processing.brightness_increasing import *
+from processing.brightness_increase import *
 from processing.color_models_converters import *
 
 def build_argparser():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-i', '--input', help = 'Path to data', 
+    parser.add_argument('-i', '--input', help = 'Path to image', 
         required = True, type = str, nargs = '+', dest = 'input')
     return parser
 
-def brightness_increasing(image):
+def brightness_increase(image):
     start = perf_counter()
     image_after = brightness_bgr(image, 150)
     finish = perf_counter()
@@ -39,7 +39,7 @@ def main():
     cv.waitKey(0)
     cv.destroyAllWindows()
 
-    time_BGR, time_YCrCb = brightness_increasing(image)
+    time_BGR, time_YCrCb = brightness_increase(image)
     print("time_BGR: {}".format(time_BGR))
     print("time_YCrCb: {}".format(time_YCrCb))
 
