@@ -67,11 +67,7 @@ $$
 Предположим мы сравниваем $2$ изображения ($X$ и $Y$) с одинаковыми высотой ($H$) и шириной ($W$).
 Сначала найдём ___MSE___:
 
-$$
-MSE = \frac{1}{3HW} \sum\limits_{i=1}^{H} \sum\limits_{j=1}^{W} \|x_{ij} - y_{ij}\|^2 \ , \\
-
-где \ \ x_{ij} = (B_x, G_x, R_x)^T, \ y_{ij} = (B_y, G_y, R_y)^T
-$$
+<a href="https://www.codecogs.com/eqnedit.php?latex=MSE&space;=&space;\frac{1}{3HW}&space;\sum\limits_{i=1}^{H}&space;\sum\limits_{j=1}^{W}&space;\|x_{ij}&space;-&space;y_{ij}\|^2&space;\&space;,&space;\\&space;where&space;\&space;\&space;x_{ij}&space;=&space;(B_x,&space;G_x,&space;R_x)^T,&space;\&space;y_{ij}&space;=&space;(B_y,&space;G_y,&space;R_y)^T" target="_blank"><img src="https://latex.codecogs.com/gif.latex?MSE&space;=&space;\frac{1}{3HW}&space;\sum\limits_{i=1}^{H}&space;\sum\limits_{j=1}^{W}&space;\|x_{ij}&space;-&space;y_{ij}\|^2&space;\&space;,&space;\\&space;where&space;\&space;\&space;x_{ij}&space;=&space;(B_x,&space;G_x,&space;R_x)^T,&space;\&space;y_{ij}&space;=&space;(B_y,&space;G_y,&space;R_y)^T" title="MSE = \frac{1}{3HW} \sum\limits_{i=1}^{H} \sum\limits_{j=1}^{W} \|x_{ij} - y_{ij}\|^2 \ , \\ where \ \ x_{ij} = (B_x, G_x, R_x)^T, \ y_{ij} = (B_y, G_y, R_y)^T" /></a>
 
 Теперь найдём ___PSNR___ ($M$ - максимальное значение, т.е. $M = 255$, т.к. $8$-битное изображение):
 $$
