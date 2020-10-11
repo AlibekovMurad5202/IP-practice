@@ -2,7 +2,7 @@
 
 ## Структура каталога
 * [__docs__][docs] - директория с документацией
-    + [_lab_01.md_][lab_01] - задачи лабораторной работы №1
+    + [_README.md_][lab_01] - задачи лабораторной работы №1
     + [_report.md_][report] - отчёт по проделанной работе с результатами замеров качества и времени выполнения
 * [__images__][images] - директория с тестовыми изображениями
 * [__src__][src] - директория с кодом
@@ -17,5 +17,5 @@
 [processing]: https://github.com/AlibekovMurad5202/IP-practice/tree/master/lab_01/src/processing (processing)
 [br_demo]: https://github.com/AlibekovMurad5202/IP-practice/blob/master/lab_01/src/brightness_demo.py (brightness_demo)
 [cm_demo]: https://github.com/AlibekovMurad5202/IP-practice/blob/master/lab_01/src/color_models_demo.py (color_models_demo)
-[lab_01]: https://github.com/AlibekovMurad5202/IP-practice/tree/master/lab_01/docs/lab_01.md (lab_01)
+[lab_01]: https://github.com/AlibekovMurad5202/IP-practice/tree/master/lab_01/docs/README.md (lab_01)
 [report]: https://github.com/AlibekovMurad5202/IP-practice/tree/master/lab_01/docs/report.md (report)
