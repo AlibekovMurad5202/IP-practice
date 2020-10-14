@@ -6,11 +6,11 @@ python <name>_demo.py
 * `-i / --input` - путь до изображения
 
 ## Демонстрация запуска демо
-### brightness_demo
+### Запуск brightness_demo
 <img src="../resources/brightness_demo_record.gif" width="850" height="500" />
 
-### color_models_demo
+### Запуск color_models_demo
 <img src="../resources/color_models_demo_record.gif" width="850" height="500" />
 
-### grayscale_demo
+### Запуск grayscale_demo
 <img src="../resources/grayscale_demo_record.gif" width="850" height="500" />
