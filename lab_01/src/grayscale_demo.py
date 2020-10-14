@@ -28,7 +28,7 @@ def convert_to_grayscale(image):
     cv.destroyAllWindows()
 
     affinity = [MSE(image_gray_cv, image_gray_manual),
-                PSNR(image_gray_cv, image_gray_manual)]
+        PSNR(image_gray_cv, image_gray_manual)]
 
     return processing_time_cv, processing_time_manual, affinity
 
