@@ -15,7 +15,7 @@ def convert_to_grayscale(image):
     image_gray_cv = BGR2GRAY(image)
     finish = perf_counter()
     processing_time_cv = finish - start
-    cv.imshow("Grayscale image using OpenCV conversion", image_gray_cv)
+    cv.imshow("Grayscale OpenCV", image_gray_cv)
     cv.waitKey(0)
     cv.destroyAllWindows()
 
@@ -23,7 +23,7 @@ def convert_to_grayscale(image):
     image_gray_manual = bgr2gray(image)
     finish = perf_counter()
     processing_time_manual = finish - start
-    cv.imshow("Grayscale image using luminosity conversion", image_gray_manual)
+    cv.imshow("Grayscale luminosity", image_gray_manual)
     cv.waitKey(0)
     cv.destroyAllWindows()
 
