@@ -5,6 +5,7 @@
     + [_README.md_][lab_01] - задачи лабораторной работы №1
     + [_report.md_][report] - отчёт по проделанной работе с результатами замеров качества и времени выполнения
 * [__images__][images] - директория с тестовыми изображениями
+* [__resources__][resources] - директория с примерами запуска демо
 * [__src__][src] - директория с кодом
     + [___processing___][processing] - директория с исходным кодом лабораторной работы
     + [_brightness_demo.py_][br_demo] - тестовое __демо__ для сравнения работы точечного фильтра "_Увеличение яркости_" с одним и тем же изображением в разных цветовых моделях
@@ -23,3 +24,4 @@
 [lab_01]: https://github.com/AlibekovMurad5202/IP-practice/tree/master/lab_01/docs/README.md (lab_01)
 [report]: https://github.com/AlibekovMurad5202/IP-practice/tree/master/lab_01/docs/report.md (report)
 [instruction]: https://github.com/AlibekovMurad5202/IP-practice/blob/master/lab_01/src/README.md (launch)
+[resources]: https://github.com/AlibekovMurad5202/IP-practice/tree/master/lab_01/resources (resources)
