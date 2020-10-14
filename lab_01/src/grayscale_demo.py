@@ -1,7 +1,7 @@
 import sys
 import argparse
 from time import perf_counter
-from processing.convert_to_grayscale import *
+from processing.grayscale_converters import *
 from processing.utils import PSNR, MSE
 
 def build_argparser():
