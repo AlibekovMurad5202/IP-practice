@@ -8,6 +8,7 @@
 
 ## Теоретическая информация
 В качестве цветовых моделей мы взяли ___BGR ⇆ YCrCb___, а в качестве метрики сходства - ___PSNR___
+
 ### _Рассмотим перевод изображения из цветовой модели __BGR__ в цветовую модель __Grayscale__._
 Для перевода в __Grayscale__ мы взяли формулу _luminosity_:
 
@@ -15,9 +16,10 @@
 
 В __OpenCV__ используется другая формула:
 
-<a href="https://www.codecogs.com/eqnedit.php?latex=Y&space;=&space;0.299&space;R&space;&plus;&space;0.587&space;G&space;&plus;&space;0.114&space;B" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Y&space;=&space;0.299&space;R&space;&plus;&space;0.587&space;G&space;&plus;&space;0.114&space;B" title="Y = 0.299 R + 0.587 G + 0.114 B" /></a>
+<a href="https://www.codecogs.com/eqnedit.php?latex=Y&space;=&space;0.299&space;*&space;R&space;&plus;&space;0.587&space;*&space;G&space;&plus;&space;0.114&space;*&space;B" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Y&space;=&space;0.299&space;*&space;R&space;&plus;&space;0.587&space;*&space;G&space;&plus;&space;0.114&space;*&space;B" title="Y = 0.299 * R + 0.587 * G + 0.114 * B" /></a>
 
 Всвязи с различиями в формулах, можем сделать вывод, что при преобразовании средствами OpenCV зелёный цвет будет преобразован в более светлый оттенок серого, чем при преобразовании при помощи формулы _luminosity_. Синий и красный цвета, в свою очередь, будут преобразованы в более тёмные оттенки серого.
+
 ### _Рассмотим прямой/обратный перевод изображения из цветовой модели __BGR__ в цветовую модель __YCrCb__._
 __YCrCb__ - цветовое пространство, которое используется для передачи цветных изображений в компонентном видео и цифровой фотографии.
 __Y__ — компонента яркости, __Cr__ и __Cb__ являются красной и синей цветоразностными компонентами соответсвенно.
