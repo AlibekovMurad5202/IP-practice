@@ -3,6 +3,7 @@ import argparse
 from time import perf_counter
 from processing.brightness_increase import *
 from processing.color_models_converters import *
+from processing.utils import PSNR, MSE
 
 def build_argparser():
     parser = argparse.ArgumentParser()
@@ -12,10 +13,10 @@ def build_argparser():
 
 def brightness_increase(image):
     start = perf_counter()
-    image_after = brightness_bgr(image, 150)
+    image_after_BGR = brightness_bgr(image, 150)
     finish = perf_counter()
     processing_time_BGR = finish - start
-    cv.imshow("Image (BGR) (brightness += 150)", image_after)
+    cv.imshow("Image (BGR) (brightness += 150)", image_after_BGR)
     cv.waitKey(0)
     cv.destroyAllWindows()
 
@@ -24,12 +25,15 @@ def brightness_increase(image):
     image_bright = brightness_YCrCb(image_conv, 150)
     finish = perf_counter()
     processing_time_YCrCb = finish - start
-    image_after = YCrCb2bgr(image_bright)
-    cv.imshow("Image (YCrCb) (brightness += 150)", image_after)
+    image_after_YCrCb = YCrCb2bgr(image_bright)
+    cv.imshow("Image (YCrCb) (brightness += 150)", image_after_YCrCb)
     cv.waitKey(0)
     cv.destroyAllWindows()
 
-    return (processing_time_BGR, processing_time_YCrCb)
+    affinity = [MSE(image_after_BGR, image_after_YCrCb), 
+        PSNR(image_after_BGR, image_after_YCrCb)]
+
+    return (processing_time_BGR, processing_time_YCrCb, affinity)
 
 def main():
     args = build_argparser().parse_args()
@@ -39,9 +43,11 @@ def main():
     cv.waitKey(0)
     cv.destroyAllWindows()
 
-    time_BGR, time_YCrCb = brightness_increase(image)
+    time_BGR, time_YCrCb, affinity = brightness_increase(image)
     print("time_BGR: {}".format(time_BGR))
     print("time_YCrCb: {}".format(time_YCrCb))
+    print("MSE: {}".format(affinity[0]))
+    print("PSNR: {}".format(affinity[1]))
 
 if __name__ == '__main__':
     sys.exit(main() or 0)
