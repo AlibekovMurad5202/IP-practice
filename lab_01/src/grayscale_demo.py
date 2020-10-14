@@ -2,6 +2,7 @@ import sys
 import argparse
 from time import perf_counter
 from processing.convert_to_grayscale import *
+from processing.utils import PSNR, MSE
 
 def build_argparser():
     parser = argparse.ArgumentParser()
@@ -26,7 +27,10 @@ def convert_to_grayscale(image):
     cv.waitKey(0)
     cv.destroyAllWindows()
 
-    return processing_time_cv, processing_time_manual
+    affinity = [MSE(image_gray_cv, image_gray_manual),
+                PSNR(image_gray_cv, image_gray_manual)]
+
+    return processing_time_cv, processing_time_manual, affinity
 
 def main():
     args = build_argparser().parse_args()
@@ -36,10 +40,12 @@ def main():
     cv.waitKey(0)
     cv.destroyAllWindows()
 
-    time_cv, time_manual = convert_to_grayscale(image)
+    time_cv, time_manual, affinity = convert_to_grayscale(image)
 
     print("time_CV: {}".format(time_cv))
     print("time_manual: {}".format(time_manual))
+    print("MSE: {}".format(affinity[0]))
+    print("PSNR: {}".format(affinity[1]))
 
 
 if __name__ == '__main__':
