@@ -9,8 +9,8 @@ def build_argparser():
         required = True, type = str, nargs = '+', dest = 'input')
     parser.add_argument('-m', '--mean', help = 'Mean of gaussian distribution (default: 0)',
         required = False, type = int, default=0, nargs = '?', dest = 'mean')
-    parser.add_argument('-v', '--var', help = 'Standard deviation of gaussian distribution (default: 100)', 
-        required = False, type = int, default = 100, nargs = '?', dest = 'var')
+    parser.add_argument('-v', '--var', help = 'Standard deviation of gaussian distribution (default: 20)', 
+        required = False, type = int, default = 20, nargs = '?', dest = 'var')
     return parser
 
 def apply_gaussian_noise(image, mean, var):
@@ -28,7 +28,6 @@ def apply_gaussian_noise(image, mean, var):
 def main():
     args = build_argparser().parse_args()
     image = cv.imread(args.input[0])
-    noisy_image = gaussian_noise(image)
     cv.imshow("Image", image)
     cv.waitKey(0)
     cv.destroyAllWindows()
