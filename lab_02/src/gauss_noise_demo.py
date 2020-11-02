@@ -8,9 +8,9 @@ def build_argparser():
     parser.add_argument('-i', '--input', help = 'Path to image', 
         required = True, type = str, nargs = '+', dest = 'input')
     parser.add_argument('-m', '--mean', help = 'Mean of gaussian distribution (default: 0)',
-        required = False, type = int, default=0, nargs = '?', dest = 'mean')
-    parser.add_argument('-v', '--var', help = 'Standard deviation of gaussian distribution (default: 20)', 
-        required = False, type = int, default = 20, nargs = '?', dest = 'var')
+        required = False, type = float, default = 0.0, nargs = '?', dest = 'mean')
+    parser.add_argument('-s', '--sigma', help = 'Standard deviation of gaussian distribution (default: 20)', 
+        required = False, type = float, default = 20.0, nargs = '?', dest = 'sigma')
     return parser
 
 def apply_gaussian_noise(image, mean, var):
