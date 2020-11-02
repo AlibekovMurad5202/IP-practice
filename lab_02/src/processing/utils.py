@@ -7,6 +7,9 @@ def clamp_bgr_pixel(colors, value):
     r_result = max(min(colors[2] + value, 255), 0)
     return (b_result, g_result, r_result)
 
+def clamp_coords(coords, min_value, max_value):
+    return max(min(coords, max_value), min_value)
+
 def MSE(img1, img2):
    h, w = img1.shape[:2]
    img2 = cv.resize(img2, (w, h))
