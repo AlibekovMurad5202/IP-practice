@@ -1,5 +1,3 @@
-import numpy as np
-import cv2
 from processing.utils import *
 
 def gaussian_noise(image, mean, var):
