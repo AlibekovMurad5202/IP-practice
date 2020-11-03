@@ -26,12 +26,12 @@ def apply_midpoint_filter_denoising(image, radius, mean, sigma):
     cv.imshow("Noisy Image", noisy_image)
     cv.waitKey(0)
     cv.destroyAllWindows()
-    view_hist(image, "Histogram (Noisy Image)")
+    view_histogram(image, "Histogram (Noisy Image)")
 
     cv.imshow("Filtered Image", denoised_image)
     cv.waitKey(0)
     cv.destroyAllWindows()
-    view_hist(image, "Histogram (Filtered Image)")
+    view_histogram(image, "Histogram (Filtered Image)")
 
     affinity = [MSE(image, denoised_image), PSNR(image, denoised_image)]
     return (processing_time, affinity)
@@ -42,7 +42,7 @@ def main():
     cv.imshow("Image", image)
     cv.waitKey(0)
     cv.destroyAllWindows()
-    view_hist(image, "Histogram (Image)")
+    view_histogram(image, "Histogram (Image)")
 
     processing_time, affinity = apply_midpoint_filter_denoising(image, args.radius, args.mean, args.sigma)
     print("time: {}".format(processing_time))
