@@ -39,5 +39,6 @@ def main():
     print("time: {}".format(processing_time))
     print("MSE: {}".format(affinity[0]))
     print("PSNR: {}".format(affinity[1]))
+    
 if __name__ == '__main__':
     sys.exit(main() or 0)
