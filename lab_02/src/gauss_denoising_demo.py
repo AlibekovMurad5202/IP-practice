@@ -68,9 +68,9 @@ def main():
     print("time: {}".format(processing_time))
     print("MSE: {}".format(affinity[0]))
     print("PSNR: {}".format(affinity[1]))
-    print("\nOpenCV:")
 
     processing_time, affinity = apply_GAUSS_DENOISING(image, args.radius, args.mean, args.sigma)
+    print("OpenCV:")
     print("time: {}".format(processing_time))
     print("MSE: {}".format(affinity[0]))
     print("PSNR: {}".format(affinity[1]))
