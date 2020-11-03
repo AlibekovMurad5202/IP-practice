@@ -2,7 +2,7 @@ from processing.utils import *
 
 def gaussian_noise(image, mean, var):
     height, width = image.shape[:2]
-    gaussian = np.random.normal(mean, var, (height, width)).astype('int16')
+    gaussian = random_normal(mean, var, (height, width))
     noisy_image = np.zeros(shape=(height, width, 3), dtype='uint8')
     for y in range(height):
         for x in range(width):
