@@ -13,14 +13,16 @@ def build_argparser():
         required = False, type = float, default = 20.0, nargs = '?', dest = 'sigma')
     return parser
 
-def apply_gaussian_noise(image, mean, var):
+def apply_gaussian_noise(image, mean, sigma):
     start = perf_counter()
-    noisy_image = gaussian_noise(image, mean, var)
+    noisy_image = gaussian_noise(image, mean, sigma)
     finish = perf_counter()
     processing_time_gauss = finish - start
+    
     cv.imshow("Noisy Image", noisy_image)
     cv.waitKey(0)
     cv.destroyAllWindows()
+    view_histogram(image, "Histogram (Noisy Image)")
 
     affinity = [MSE(image, noisy_image), PSNR(image, noisy_image)]
     return (processing_time_gauss, affinity)
@@ -31,8 +33,9 @@ def main():
     cv.imshow("Image", image)
     cv.waitKey(0)
     cv.destroyAllWindows()
+    view_histogram(image, "Histogram (Image)")
     
-    processing_time, affinity = apply_gaussian_noise(image, args.mean, args.var)
+    processing_time, affinity = apply_gaussian_noise(image, args.mean, args.sigma)
     print("time: {}".format(processing_time))
     print("MSE: {}".format(affinity[0]))
     print("PSNR: {}".format(affinity[1]))
