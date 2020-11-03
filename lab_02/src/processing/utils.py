@@ -66,4 +66,3 @@ def view_histogram(image, title):
     ax.plot(range(0, 256), b_hist, color='b')
     ax.set_title(title)
     plt.show()
-

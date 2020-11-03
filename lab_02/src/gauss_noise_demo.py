@@ -8,19 +8,21 @@ def build_argparser():
     parser.add_argument('-i', '--input', help = 'Path to image', 
         required = True, type = str, nargs = '+', dest = 'input')
     parser.add_argument('-m', '--mean', help = 'Mean of gaussian distribution (default: 0)',
-        required = False, type = int, default=0, nargs = '?', dest = 'mean')
-    parser.add_argument('-v', '--var', help = 'Standard deviation of gaussian distribution (default: 20)', 
-        required = False, type = int, default = 20, nargs = '?', dest = 'var')
+        required = False, type = float, default = 0.0, nargs = '?', dest = 'mean')
+    parser.add_argument('-s', '--sigma', help = 'Standard deviation of gaussian distribution (default: 20)', 
+        required = False, type = float, default = 20.0, nargs = '?', dest = 'sigma')
     return parser
 
-def apply_gaussian_noise(image, mean, var):
+def apply_gaussian_noise(image, mean, sigma):
     start = perf_counter()
-    noisy_image = gaussian_noise(image, mean, var)
+    noisy_image = gaussian_noise(image, mean, sigma)
     finish = perf_counter()
     processing_time_gauss = finish - start
+    
     cv.imshow("Noisy Image", noisy_image)
     cv.waitKey(0)
     cv.destroyAllWindows()
+    view_histogram(image, "Histogram (Noisy Image)")
 
     affinity = [MSE(image, noisy_image), PSNR(image, noisy_image)]
     return (processing_time_gauss, affinity)
@@ -31,10 +33,12 @@ def main():
     cv.imshow("Image", image)
     cv.waitKey(0)
     cv.destroyAllWindows()
+    view_histogram(image, "Histogram (Image)")
     
-    processing_time, affinity = apply_gaussian_noise(image, args.mean, args.var)
+    processing_time, affinity = apply_gaussian_noise(image, args.mean, args.sigma)
     print("time: {}".format(processing_time))
     print("MSE: {}".format(affinity[0]))
     print("PSNR: {}".format(affinity[1]))
+    
 if __name__ == '__main__':
     sys.exit(main() or 0)
