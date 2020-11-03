@@ -33,4 +33,3 @@ def gauss_denoising(image, radius: int, sigma: float):
 def GAUSS_DENOISING(image, radius: int):
     result_image = cv.GaussianBlur(image, (radius, radius), 0)
     return result_image
-
