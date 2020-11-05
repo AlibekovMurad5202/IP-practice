@@ -19,7 +19,7 @@
 [src]: https://github.com/AlibekovMurad5202/IP-practice/tree/master/lab_02/src (src)
 [processing]: https://github.com/AlibekovMurad5202/IP-practice/tree/master/lab_02/src/processing (processing)
 [lab_02]: https://github.com/AlibekovMurad5202/IP-practice/tree/master/lab_02/docs/README.md (lab_02)
-[report]: https://github.com/AlibekovMurad5202/IP-practice/tree/master/lab_01/docs/report.md (report)
+[report]: https://github.com/AlibekovMurad5202/IP-practice/tree/master/lab_02/docs/report.md (report)
 [instruction]: https://github.com/AlibekovMurad5202/IP-practice/blob/master/lab_02/src/README.md (launch)
 [gdd_demo]: https://github.com/AlibekovMurad5202/IP-practice/blob/master/lab_02/src/gauss_denoising_demo.py (gauss_denoising_demo)
 [gnd_demo]: https://github.com/AlibekovMurad5202/IP-practice/blob/master/lab_02/src/gauss_noise_demo.py (gauss_noise_demo)

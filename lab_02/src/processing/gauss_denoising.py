@@ -3,7 +3,6 @@ import cv2 as cv
 from processing.utils import *
 
 def calculate_gaussian_kernel(radius: int, sigma: float):
-    size = int(2 * radius + 1)
     values_range = range(-radius, radius + 1)
     grid = np.array([[i * i + j * j for i in values_range] for j in values_range])
     np.transpose(grid)
