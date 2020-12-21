@@ -6,7 +6,7 @@ from processing.distance_map import *
 def build_argparser():
     parser = argparse.ArgumentParser()
     parser.add_argument('-i', '--input', help = 'Path to edges image', 
-        required = False, type = str, default = '../images/cup_edges.png', nargs = '+', dest = 'input')
+        required = True, type = str, nargs = '+', dest = 'input')
     return parser
 
 def get_distanse_map(image):
