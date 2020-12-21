@@ -1,19 +1,19 @@
 import numpy as np 
 import os 
 import cv2 as cv
+from utils import *
 
-def canny(img, weak_th = None, strong_th = None): 
-    img = cv.cvtColor(img, cv.COLOR_BGR2GRAY) 
-    img = # НАШ ГАУСС cv.GaussianBlur(img, (3, 3), 1.4) # 5 5 1.4
+def canny_alg(img, weak_th = None, strong_th = None): 
+    img = cv.GaussianBlur(img, (3, 3), 0.7)
     
-    gx = # НАШ СОБЕЛЬ cv.Sobel(np.float32(img), cv.CV_64F, 1, 0, 3)
-    gy = # НАШ СОБЕЛЬ cv.Sobel(np.float32(img), cv.CV_64F, 0, 1, 3)
+    gx =cv.Sobel(np.float32(img), cv.CV_64F, 1, 0, 3)
+    gy =cv.Sobel(np.float32(img), cv.CV_64F, 0, 1, 3)
 
-    # ПЕРЕВОД В ПОЛЯРНЫЕ mag, ang = cv.cartToPolar(gx, gy, angleInDegrees = True) 
+    mag, ang = cv.cartToPolar(gx, gy, angleInDegrees = True) 
     mag_max = np.max(mag) 
     
-    if not weak_th:weak_th = mag_max * 0.09 # 0.1
-    if not strong_th:strong_th = mag_max * 0.17 # 0.5
+    if not weak_th:weak_th = mag_max * 0.09
+    if not strong_th:strong_th = mag_max * 0.17
 
     height, width = img.shape 
     for i_x in range(width): 
@@ -63,11 +63,4 @@ def canny(img, weak_th = None, strong_th = None):
                     mag[i_y, i_x] = 255
                 else:
                     mag[i_y, i_x] = 0
-
     return mag
-
-frame = cv.imread("C:/Users/Zerus/Desktop/234.png") 
-canny_img = Canny_detector(frame)
-cv.imshow("canny_img", canny_img)
-cv.waitKey(0)
-cv.destroyAllWindows()
