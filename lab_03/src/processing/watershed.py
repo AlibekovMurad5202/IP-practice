@@ -1,7 +1,7 @@
 import cv2 as cv
 import numpy as np
 import random as rng
-from utils import *
+from processing.utils import *
 from processing.canny import *
 
 rng.seed(3818061)

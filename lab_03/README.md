@@ -16,4 +16,4 @@
 [instruction]: https://github.com/AlibekovMurad5202/IP-practice/blob/master/lab_03/src/README.md (launch)
 [canny_demo]: https://github.com/AlibekovMurad5202/IP-practice/blob/master/lab_03/src/canny_demo.py (canny_demo)
 [dstmp_demo]: https://github.com/AlibekovMurad5202/IP-practice/blob/master/lab_03/src/distance_map_demo.py (distance_map_demo)
-[watershed_demo]: https://github.com/AlibekovMurad5202/IP-practice/blob/master/lab_02/src/watershed_demo.py (watershed_demo)
+[watershed_demo]: https://github.com/AlibekovMurad5202/IP-practice/blob/master/lab_03/src/watershed_demo.py (watershed_demo)

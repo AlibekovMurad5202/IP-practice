@@ -1,7 +1,7 @@
 import numpy as np 
 import os 
 import cv2 as cv
-from utils import *
+from processing.utils import *
 
 def canny_alg(img, weak_th = None, strong_th = None): 
     img = cv.GaussianBlur(img, (3, 3), 0.7)
